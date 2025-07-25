@@ -1,9 +1,13 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors')
 const indexRouter = require("./routes/index");
 const app = express();
+require("dotenv").config();
 app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false })); 
 app.use("/api", indexRouter)
 const mongoURI = `mongodb://localhost:27017/todo-demo`;
 

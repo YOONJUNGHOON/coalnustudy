@@ -9,9 +9,11 @@ const taskSchema = Schema({
   isComplete:{
     type: Boolean,
     required: true
-  }
-})
+  },
+},
+{ timestamps: true } // 이게 있어야 createAt과 updateAt이 생긴다
+);
 
 const Task = mongoose.model("Task",taskSchema)
 
-module.exporets = Task;
+module.exports = Task;
